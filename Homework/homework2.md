@@ -42,6 +42,6 @@ WHERE
 - `lpep_pickup_datetime` is specific to green taxi data (vs `tpep_pickup_datetime` for yellow taxis)
 
 **Key Differences Between Queries:**
-- **Database Platform**: Query 1 uses BigQuery, Query 2 uses PostgreSQL
+- **Database Platform**: Query 3 uses BigQuery, Query 4 uses PostgreSQL
 - **Pickup Datetime Column**: Yellow taxis use `tpep_pickup_datetime`, green taxis use `lpep_pickup_datetime`
 - **Schema Reference**: BigQuery uses backtick notation with full path, PostgreSQL uses standard schema.table notation
