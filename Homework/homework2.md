@@ -1,6 +1,4 @@
-## Query 1: Yellow Taxi Trips Count for 2020
-
-**Question:** How many rows are there for the Yellow Taxi data for all CSV files in the year 2020?
+**Question 3:** How many rows are there for the Yellow Taxi data for all CSV files in the year 2020?
 
 **Database:** BigQuery (`kestra-dataengg.zoomcamp.yellow_tripdata`)
 
@@ -22,9 +20,7 @@ WHERE
 
 ---
 
-## Query 4: Green Taxi Trips Count for 2020
-
-**Question:** How many rows are there for the Green Taxi data for all CSV files in the year 2020?
+**Question 4:** How many rows are there for the Green Taxi data for all CSV files in the year 2020?
 
 **Database:** PostgreSQL (`public.green_tripdata`)
 
