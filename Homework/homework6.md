@@ -15,6 +15,10 @@ setup_hadoop_for_windows()
     HADOOP_HOME = C:\hadoop
     Both winutils.exe and hadoop.dll are in place. Restart kernel if SparkSession was already created.
 
+
+
+
+
     True
 
 
@@ -40,7 +44,11 @@ spark = SparkSession.builder \
 ```python
 spark.version
 ```
-  '4.1.1'
+
+
+
+
+    '4.1.1'
 
 
 
