@@ -10,9 +10,7 @@ docker exec -it workshop-redpanda-1 rpk version
 
 What version of Redpanda are you running?
 
-### Answer:
-
-**Result: v25.3.29**
+### Answer: **v25.3.29**
 
 ---
 
@@ -42,15 +40,13 @@ How long did it take to send the data?
 - 120 seconds
 - 300 seconds
 
-### Answer:
+### Answer: **10 seconds (actual time: ~7.33 seconds)**
 
 ```bash
 docker compose up --build -d
 docker exec -it workshop-redpanda-1 rpk topic create green-trips --partitions 1 --replicas 1
 uv run python src/producers/producer_green_trips.py
 ```
-
-**Result: 10 seconds (actual time: ~7.33 seconds)**
 
 ---
 
@@ -68,15 +64,14 @@ How many trips have `trip_distance` > 5?
 - 8506
 - 9506
 
-### Answer:
+### Answer: **8506**
 
 ```bash
 docker compose up --build -d
 docker exec -it workshop-redpanda-1 rpk topic create green-trips --partitions 1 --replicas 1
 uv run python src/producers/producer.py
 uv run python src/consumers/consumer_count_trips.py
-```
-**Result: 8506**
+``` 
 
 ---
 
@@ -102,7 +97,7 @@ Which `PULocationID` had the most trips in a single 5-minute window?
 - 75
 - 166
 
-### Answer:
+### Answer: **74**
 
 ```bash
 # 1. Start the stack
@@ -142,8 +137,6 @@ window_start          | pulocationid | num_trips
 2025-10-01 00:00:00   |     75       |     8
 ```
 
-**Result: 74**
-
 ---
 
 ## Question 5. Session window - longest streak
@@ -159,7 +152,7 @@ How many trips were in the longest session?
 - 51
 - 81
 
-### Answer:
+### Answer: **81**
 
 ```bash
 # 1. Create the PostgreSQL sink table
@@ -216,8 +209,6 @@ LIMIT 3;
 +--------------+-----------+---------------------+---------------------+
 ```
 
-**Result: 81 trips**
-
 ---
 
 ## Question 6. Tumbling window - largest tip
@@ -231,7 +222,7 @@ Which hour had the highest total tip amount?
 - 2025-10-22 08:00:00
 - 2025-10-30 16:00:00
 
-### Answer:
+### Answer: **2025-10-16 18:00:00**
 
 ```bash
 # 1. Create the PostgreSQL sink table
@@ -287,5 +278,3 @@ LIMIT 5;
 | 2025-10-16 17:00:00 | 463.73             |
 +---------------------+--------------------+
 ```
-
-**Result: 2025-10-16 18:00:00**
