@@ -44,7 +44,13 @@ How long did it take to send the data?
 
 ### Answer:
 
-**Result: 10 seconds (actual time: 7.88 seconds)**
+```bash
+docker compose up --build -d
+docker exec -it workshop-redpanda-1 rpk topic create green-trips --partitions 1 --replicas 1
+uv run python src/producers/producer_green_trips.py
+```
+
+**Result: 10 seconds (actual time: ~7.33 seconds)**
 
 ---
 
@@ -64,6 +70,12 @@ How many trips have `trip_distance` > 5?
 
 ### Answer:
 
+```bash
+docker compose up --build -d
+docker exec -it workshop-redpanda-1 rpk topic create green-trips --partitions 1 --replicas 1
+uv run python src/producers/producer.py
+uv run python src/consumers/consumer_count_trips.py
+```
 **Result: 8506**
 
 ---
@@ -98,7 +110,7 @@ cd workshop
 docker compose up --build -d
 
 # 2. Create the Kafka topic
-docker exec workshop-redpanda-1 rpk topic create green_trips --partitions 1 --replicas 1
+docker exec workshop-redpanda-1 rpk topic create green-trips --partitions 1 --replicas 1
 
 # 3. Create the PostgreSQL sink table
 PGPASSWORD=postgres docker compose exec postgres psql -U postgres -d postgres -c "
@@ -108,7 +120,7 @@ CREATE TABLE processed_events_windowed (
     pulocationid INT,
     num_trips BIGINT,
     PRIMARY KEY (window_start, pulocationid)
-);"
+);";
 
 # 4. Produce all green taxi data into Kafka
 uv run python src/producers/producer.py

@@ -34,7 +34,7 @@ producer = KafkaProducer(
 t0 = time.time()
 
 # topic_name = 'rides'
-topic_name = 'green_trips'
+topic_name = 'green-trips'
 
 total = len(df)
 for i, (_, row) in enumerate(df.iterrows()):

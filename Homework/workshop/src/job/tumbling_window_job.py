@@ -40,7 +40,7 @@ def create_events_source_kafka(t_env):
         ) WITH (
             'connector' = 'kafka',
             'properties.bootstrap.servers' = 'redpanda:29092',
-            'topic' = 'green_trips',
+            'topic' = 'green-trips',
             'scan.startup.mode' = 'earliest-offset',
             'properties.auto.offset.reset' = 'earliest',
             'format' = 'json'
